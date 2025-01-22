@@ -6,6 +6,7 @@ class BookModel {
   final String imagePath;
   final double rate;
   final int countComments;
+  final String author;
 
   BookModel({
     required this.id,
@@ -15,5 +16,6 @@ class BookModel {
     required this.imagePath,
     required this.rate,
     required this.countComments,
+    required this.author,
   });
 }

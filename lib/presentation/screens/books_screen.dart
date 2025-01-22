@@ -1,3 +1,6 @@
+import 'package:books_app/data/service/repository.dart';
+import 'package:books_app/presentation/screens/details_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BooksScreen extends StatelessWidget {
@@ -47,12 +50,22 @@ class BooksScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: Repository.recommendedBooks.length,
                   itemBuilder: (context, index) {
-                    return Image.asset(
-                      width: 100,
-                      height: 100,
-                      "assets/images/book1.png",
+                    final book = Repository.recommendedBooks[index];
+                    return GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (context) => DetailsScreen(
+                            book: book,
+                          ),
+                        ),
+                      ),
+                      child: Image.asset(
+                        width: 100,
+                        height: 100,
+                        book.imagePath,
+                      ),
                     );
                   },
                 ),
@@ -70,79 +83,89 @@ class BooksScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 400,
                 child: ListView.builder(
-                  itemCount: 5,
+                  itemCount: Repository.popularBooks.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      height: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey.shade200,
-                      ),
-                      child: ListTile(
-                        leading: Image.asset('assets/images/book2.png'),
-                        title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "The Steal Like An Artist",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              "Austin Kleon",
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "4.8",
-                                  style: TextStyle(
-                                    color: Colors.deepOrange,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                                Text(
-                                  "| Based on 2k Reviews",
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                    color: Colors.grey.shade600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              "\$45.87",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.grey.shade800,
-                              ),
-                            ),
-                          ],
-                        ),
-                        trailing: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            padding: const EdgeInsets.all(0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                    final book = Repository.popularBooks[index];
+                    return GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (context) => DetailsScreen(
+                            book: book,
                           ),
-                          child: Text(
-                            "Grab Now",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
+                        ),
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.grey.shade200,
+                        ),
+                        child: ListTile(
+                          leading: Image.asset(book.imagePath),
+                          title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                book.title,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Austin Kleon",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "4.8",
+                                    style: TextStyle(
+                                      color: Colors.deepOrange,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                  Text(
+                                    "| Based on 2k Reviews",
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                "\$45.87",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey.shade800,
+                                ),
+                              ),
+                            ],
+                          ),
+                          trailing: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              padding: const EdgeInsets.all(0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              "Grab Now",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
                             ),
                           ),
                         ),

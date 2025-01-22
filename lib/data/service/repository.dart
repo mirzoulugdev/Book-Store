@@ -11,6 +11,7 @@ class Repository {
       imagePath: "assets/images/book5.png",
       rate: 4.2,
       countComments: 123,
+      author: "J.D. Salinger",
     ),
     BookModel(
       id: 2,
@@ -21,6 +22,7 @@ class Repository {
       imagePath: "assets/images/book4.png",
       rate: 4.8,
       countComments: 234,
+      author: "Harper Lee",
     ),
     BookModel(
       id: 3,
@@ -31,6 +33,7 @@ class Repository {
       imagePath: "assets/images/book3.png",
       rate: 4.6,
       countComments: 456,
+      author: "George Orwell",
     ),
     BookModel(
       id: 4,
@@ -41,6 +44,7 @@ class Repository {
       imagePath: "assets/images/book2.png",
       rate: 4.4,
       countComments: 312,
+      author: "F. Scott Fitzgerald",
     ),
     BookModel(
       id: 5,
@@ -51,6 +55,7 @@ class Repository {
       imagePath: "assets/images/book1.png",
       rate: 3.9,
       countComments: 190,
+      author: "Herman Melville",
     ),
   ];
 
@@ -64,6 +69,7 @@ class Repository {
       imagePath: "assets/images/book5.png",
       rate: 4.7,
       countComments: 315,
+      author: "Leo Tolstoy",
     ),
     BookModel(
       id: 12,
@@ -74,6 +80,7 @@ class Repository {
       imagePath: "assets/images/book4.png",
       rate: 4.5,
       countComments: 410,
+      author: "Aldous Huxley",
     ),
     BookModel(
       id: 13,
@@ -84,6 +91,7 @@ class Repository {
       imagePath: "assets/images/book3.png",
       rate: 4.6,
       countComments: 350,
+      author: "Homer",
     ),
     BookModel(
       id: 14,
@@ -94,6 +102,7 @@ class Repository {
       imagePath: "assets/images/book4.png",
       rate: 4.4,
       countComments: 295,
+      author: "Mary Shelley",
     ),
     BookModel(
       id: 15,
@@ -104,6 +113,7 @@ class Repository {
       imagePath: "assets/images/book5.png",
       rate: 4.3,
       countComments: 220,
+      author: "Emily Brontë",
     ),
   ];
 }
